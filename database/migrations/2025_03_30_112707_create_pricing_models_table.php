@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pricing_models', function (Blueprint $table) {
             $table->id();
-            $table->double('fixed_rate');
-            $table->double('per_kilo');
-            $table->double('per_shape');
+            $table->decimal('base_fare', 8, 2)->default(0.00);
+            $table->decimal('per_km_rate', 6, 2);
+            $table->decimal('size_multiplier', 5, 2)->default(1.00);
             $table->unsignedBigInteger('driver_id');
             $table->foreign('driver_id')
                 ->references('id')

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
-            $table->integer('otp_number');
-            $table->integer('expired_at');
+            $table->string('code', 8);
+            $table->timestamp('expires_at');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')

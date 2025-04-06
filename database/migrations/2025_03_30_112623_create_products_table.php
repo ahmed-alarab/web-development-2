@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->double('weight');
-            $table->double('height');
-            $table->double('width');
+            $table->decimal('weight', 8, 2)->default(0);
+            $table->decimal('height', 8, 2)->default(0);
+            $table->decimal('width', 8, 2)->default(0);
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')
                 ->references('id')

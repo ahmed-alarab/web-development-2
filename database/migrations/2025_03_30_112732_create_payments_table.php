@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_method');
+            $table->enum('payment_method', ['credit_card', 'crypto', 'cash'])->default('credit_card');
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')
                 ->references('id')

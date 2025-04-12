@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Driver;
+use App\Models\Order;
 
 class adminController extends Controller
 {
@@ -15,7 +16,10 @@ class adminController extends Controller
         $obj = Driver::all();
         return view('manageDrivers')->with('obj', $obj);
     }
-
+    public function listOrders(){
+        $obj = Order::all();
+        return view('ordersList')->with('obj', $obj);
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -15,16 +15,6 @@ return new class extends Migration
             $table->id();
             $table->decimal('cost', 10, 2);
             $table->enum('status', ['pending', 'completed', 'active'])->default('pending');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')
-                ->references('id')
-                ->on('clients')
-                ->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')
                 ->references('id')

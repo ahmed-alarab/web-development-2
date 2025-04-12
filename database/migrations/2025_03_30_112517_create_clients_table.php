@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->text('address');
-            $table->boolean('verified')->default(false);
             $table->unsignedInteger('points')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')

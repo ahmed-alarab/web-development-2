@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Driver;
 
 class adminController extends Controller
 {
@@ -11,7 +12,8 @@ class adminController extends Controller
      */
     public function index()
     {
-        //
+        $obj = Driver::all();
+        return view('manageDrivers')->with('obj', $obj);
     }
 
     /**
@@ -51,7 +53,17 @@ class adminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $driver = Driver::findOrFail($id);
+        $driver ->verified = true;
+        $driver->save();
+        return redirect()->route('admin.index');
+    }
+    public function update2(Request $request, string $id)
+    {
+        $driver = Driver::findOrFail($id);
+        $driver ->verified = false;
+        $driver->save();
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -59,6 +71,8 @@ class adminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $driver = Driver::findOrFail($id);
+        $driver->delete();
+        return redirect('admin');
     }
 }

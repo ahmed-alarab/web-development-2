@@ -22,4 +22,7 @@ class Client extends Model
     {
         return $this->hasMany(Order::class);
     }
+    public function loyalty(){
+        return $this->hasOne(Loyalty::class);
+    }
 }

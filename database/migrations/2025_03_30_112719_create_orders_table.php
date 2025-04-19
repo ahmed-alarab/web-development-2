@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->decimal('cost', 10, 2);
+            $table->integer('kilometers');
             $table->enum('status', ['pending', 'completed', 'active'])->default('pending');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')

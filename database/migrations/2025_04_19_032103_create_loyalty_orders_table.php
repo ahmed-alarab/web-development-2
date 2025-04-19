@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('loyalties', function (Blueprint $table) {
+        Schema::create('loyalty_orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('points')->default(0);
-            $table->integer('total_kilometers')->default(0);
-            $table->integer('balance')->default(0);
-            $table->unsignedBigInteger('client_id');
-            $table->foreign('client_id')
+            $table->unsignedBigInteger('loyalty_id');
+            $table->foreign('loyalty_id')
                 ->references('id')
-                ->on('clients')
+                ->on('loyalties')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')
+                ->references('id')
+                ->on('orders')->onDelete('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('loyalties');
+        Schema::dropIfExists('loyalty_orders');
     }
 };

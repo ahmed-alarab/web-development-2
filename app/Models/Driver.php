@@ -20,4 +20,7 @@ class Driver extends Model
     {
         return $this->hasMany(PricingModel::class);
     }
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

@@ -26,6 +26,11 @@ return new class extends Migration
                 ->references('id')
                 ->on('clients')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('driver_id');
+            $table->foreign('driver_id')
+                ->references('id')
+                ->on('drivers')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = ['cost', 'status', 'user_id', 'client_id', 'product_id'];
+    protected $fillable = ['cost', 'status','driver_id', 'user_id', 'client_id', 'product_id'];
 
     public function user()
     {
@@ -16,6 +16,9 @@ class Order extends Model
     public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+    public function driver(){
+        return $this->belongsTo(Driver::class);
     }
 
     public function product()

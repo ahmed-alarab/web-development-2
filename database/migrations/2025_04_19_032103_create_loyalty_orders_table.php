@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('loyalty_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('loyalty_id');
-            $table->foreign('loyalty_id')
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')
                 ->references('id')
-                ->on('loyalties')
+                ->on('clients')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')

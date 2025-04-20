@@ -20,10 +20,10 @@
                     <tbody>
                     @foreach($obj as $loy)
                         <tr>
-                            <td>{{ $loy->client->name }}</td>
+                            <td>{{ $loy->client->user->name }}</td>
                             <td>{{ $loy->total_kilometers }} km</td>
-                            <td>{{ $loy->points }}</td>
-                            <td>${{ $loy->balance }}</td>
+                            <td style="color: red; font-weight: bold">{{ $loy->points }} pts</td>
+                            <td style="color: green; font-weight: bold">${{ $loy->balance }}</td>
                         </tr>
                     @endforeach
                     </tbody>

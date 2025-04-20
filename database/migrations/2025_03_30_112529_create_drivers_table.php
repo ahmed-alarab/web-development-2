@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('vehicle_type', ['sedan', 'suv', 'van', 'truck']);
             $table->enum('status', ['available', 'on_trip', 'offline'])->default('offline');
             $table->string('license_number', 50);
+            $table->double('total_earning')->default(0);
             $table->date('license_expiry')->nullable();
             $table->decimal('rating', 2, 1)->default(0.0);
             $table->integer('pricing_model');

@@ -11,6 +11,7 @@ class loyaltyController extends Controller
 {
 
     public function listLoyalties(){
+        $this->updateLoyalties();
         $obj = Loyalty::all();
         return view('showLoyalties')->with('obj', $obj);
     }
@@ -23,7 +24,7 @@ class loyaltyController extends Controller
 
             // Avoid double-counting (you can use a flag or check if order already added)
             if (!Loyalty_order::where('order_id', $order->id)->exists()) {
-                $km = $lotalty->kilometers;
+                $km = $order->kilometers;
                 $points = 0;
 
                 if ($km <= 50) $points = $km;
@@ -32,10 +33,11 @@ class loyaltyController extends Controller
 
                 $loyalty->total_kilometers += $km;
                 $loyalty->points += $points;
+                $loyalty->balance = (int)($loyalty-> points/100);
                 $loyalty->save();
 
                 // Optional: track processed orders
-                LoyaltyOrder::create([
+                Loyalty_order::create([
                     'order_id' => $order->id,
                     'client_id' => $order->client_id,
                 ]);

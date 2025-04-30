@@ -13,7 +13,7 @@ Route::get('admin2/listOrders', [\App\Http\Controllers\adminController::class, '
 Route::get('admin2/listLoyalties',[\App\Http\Controllers\loyaltyController::class, 'listLoyalties']);
 
 
-Route::get('/reports', [reportsController::class, 'index']);
+Route::get('/reports', [reportsController::class, 'index'])->name('reports.index');
 Route::get('/reports/totalEarnings', [reportsController::class, 'totalEarnings'])->name('total-earnings');
 Route::get('/reports/driverPerformance', [reportsController::class, 'driverPerformance'])->name('driver-performance');
 Route::get('/reports/clientSpending', [reportsController::class, 'clientSpending'])->name('client-spending');

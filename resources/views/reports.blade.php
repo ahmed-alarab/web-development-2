@@ -1,38 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container text-center my-5" style="background-color: black; margin-top: 50px">
-        <h1 class="mb-5" style="font-size: 4rem; color: white">Reports</h1>
+    <div class="container my-5 py-5 px-4 bg-dark rounded shadow-lg text-center">
+        <h1 class="text-white mb-5 display-4 fw-bold">Reports</h1>
 
         <div class="row justify-content-center g-4">
-            <div class="col-md-5 col-lg-4 btn-cnt">
+            <div class="col-md-6 col-lg-4">
                 <form action="{{ route('total-earnings') }}" method="get">
                     @csrf
-                    <button type="submit" class="report-btn" style="background-color: greenyellow;">
+                    <button type="submit" class="report-btn bg-success text-dark">
                         Total Earnings
                     </button>
                 </form>
             </div>
-            <div class="col-md-5 col-lg-4 btn-cnt">
+            <div class="col-md-6 col-lg-4">
                 <form action="{{ route('driver-performance') }}" method="get">
                     @csrf
-                    <button type="submit" class="report-btn" style="background-color: cornflowerblue;">
+                    <button type="submit" class="report-btn bg-primary text-white">
                         Driver Performance
                     </button>
                 </form>
             </div>
-            <div class="col-md-5 col-lg-4 btn-cnt">
+            <div class="col-md-6 col-lg-4">
                 <form action="{{ route('client-spending') }}" method="get">
                     @csrf
-                    <button type="submit" class="report-btn" style="background-color: mediumpurple;">
+                    <button type="submit" class="report-btn bg-purple text-white">
                         Client Spending
                     </button>
                 </form>
             </div>
-            <div class="col-md-5 col-lg-4 btn-cnt">
+            <div class="col-md-6 col-lg-4">
                 <form action="{{ route('demand-trends') }}" method="get">
                     @csrf
-                    <button type="submit" class="report-btn" style="background-color: orangered;">
+                    <button type="submit" class="report-btn bg-danger text-white">
                         Demand Trends
                     </button>
                 </form>
@@ -42,22 +42,23 @@
 
     <style>
         .report-btn {
-            width: 90%;
-            height: 200px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: black;
+            width: 100%;
+            height: 150px;
+            font-size: 1.5rem;
+            font-weight: 600;
             border: none;
-            border-radius: 12px;
-            transition: transform 0.2s ease;
+            border-radius: 16px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .report-btn:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
-        .btn-cnt{
-            width: 40%;
-            margin: 5%;
+
+        .bg-purple {
+            background-color: mediumpurple !important;
         }
     </style>
 @endsection

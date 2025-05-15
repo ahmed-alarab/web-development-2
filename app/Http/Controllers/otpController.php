@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\Otp;
 
 class otpController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    // app/Http/Controllers/OtpController.php
+
     public function index()
     {
         //

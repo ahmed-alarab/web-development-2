@@ -18,3 +18,9 @@ Route::get('/reports/totalEarnings', [reportsController::class, 'totalEarnings']
 Route::get('/reports/driverPerformance', [reportsController::class, 'driverPerformance'])->name('driver-performance');
 Route::get('/reports/clientSpending', [reportsController::class, 'clientSpending'])->name('client-spending');
 Route::get('/reports/demandTrends', [reportsController::class, 'demandTrends'])->name('demand-trends');
+
+
+// routes/api.php
+Route::post('/send-otp', [\App\Http\Controllers\otpController::class, 'generateOtp']);
+Route::post('/verify-otp', [\App\Http\Controllers\otpController::class, 'verifyOtp']);
+Route::resource('user',\App\Http\Controllers\userController::class);

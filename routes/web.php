@@ -9,6 +9,26 @@ use App\Http\Controllers\driverController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\pricingModelController;
+use App\Http\Controllers\adminController;
+
+
+
+
+Route::resource('admin',\App\Http\Controllers\adminController::class);
+Route::patch('admin/{id}/update2', [\App\Http\Controllers\adminController::class, 'update2'])->name('admin.update2');
+Route::get('admin2/listOrders', [\App\Http\Controllers\adminController::class, 'listOrders']);
+
+Route::get('admin2/listLoyalties',[\App\Http\Controllers\loyaltyController::class, 'listLoyalties']);
+
+
+Route::get('/reports', [\App\Http\Controllers\reportsController::class, 'index'])->name('reports.index');
+Route::get('/reports/totalEarnings', [\App\Http\Controllers\reportsController::class, 'totalEarnings'])->name('total-earnings');
+Route::get('/reports/driverPerformance', [\App\Http\Controllers\reportsController::class, 'driverPerformance'])->name('driver-performance');
+Route::get('/reports/clientSpending', [\App\Http\Controllers\reportsController::class, 'clientSpending'])->name('client-spending');
+Route::get('/reports/demandTrends', [\App\Http\Controllers\reportsController::class, 'demandTrends'])->name('demand-trends');
+
+
+
 
 
 Route::post('/register',[userController::class,'register']);
@@ -36,7 +56,7 @@ Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])->
 Route::middleware(['auth', 'driver','verified'])->prefix('driver')->group(function () {
     Route::get('/calendar', [driverController::class, 'calendar'])->name('driver.calendar');
     Route::get('/dashboard', [driverController::class, 'dashboardHome'])->name('driver.home');
-   
+
     Route::get('/profile', [driverController::class, 'showProfileForm'])->name('driver.profile.form');
     Route::post('/profile', [driverController::class, 'storeProfile'])->name('driver.profile.save');
 

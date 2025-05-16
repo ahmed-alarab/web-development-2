@@ -19,7 +19,7 @@
         <div class="form-group mb-3">
             <label>Vehicle Type</label>
             <select name="vehicle_type" class="form-control" required>
-                @foreach(['sedan', 'suv', 'van', 'truck'] as $type)
+                @foreach(['sedan', 'suv', 'van', 'truck', 'moto'] as $type)
                     <option value="{{ $type }}" {{ (old('vehicle_type', $driver->vehicle_type ?? '') == $type) ? 'selected' : '' }}>
                         {{ ucfirst($type) }}
                     </option>

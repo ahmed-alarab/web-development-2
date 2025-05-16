@@ -199,7 +199,7 @@
                 } else if (role === 'driver') {
                     window.location.href = '/driver/dashboard';
                 } else if (role === 'admin') {
-                    window.location.href = '/admin/dashboard';
+                    window.location.href = '/admin';
                 } else {
                     errorMsg.textContent = 'Unknown role: ' + (role ?? 'undefined');
                 }

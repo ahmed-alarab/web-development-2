@@ -16,7 +16,7 @@ return new class extends Migration
         
             // Vehicle & license info
             $table->integer('plate_number')->nullable();
-            $table->enum('vehicle_type', ['sedan', 'suv', 'van', 'truck'])->nullable();
+            $table->enum('vehicle_type', ['sedan', 'suv', 'van', 'truck', "moto"])->nullable();
             $table->string('license_number', 50)->nullable();
             $table->date('license_expiry')->nullable();
         
